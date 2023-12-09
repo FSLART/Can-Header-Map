@@ -14,7 +14,7 @@
 		/**======================================================================**/
 		#define MAP_DECODE_AS_EBS(x) (x[0]&0x18)
 		#define MAP_DECODE_AS_STATE(x) (x[0]&0x07)
-
+		
 		#define MAP_ENCODE_AS_EBS(pnt, x)(pnt[0]=(pnt[0]&0xE7) | (x&0x18) )
 		#define MAP_ENCODE_AS_STATE(pnt, x)(pnt[0]=(pnt[0]&0xF8)| (x&0x07) )
 		
