@@ -20,9 +20,16 @@
 	#define MAP_DECODE_CONSUMED_POWER(x) (x[7] << 16 | x[6] << 8 | x[5])
 	#define MAP_DECODE_TARGET_POWER (x) (x[4] << 16 | x[3] << 8 | x[2])
 	#define MAP_DECODE_BRAKE_PRESSURE (x)(x[1])
-	#define MAP_DECODE_THROTTLE_POSITION (x) (x[0]) #define MAP_APPS (x) MAP_THROTTLE_POSITION(x)
+	#define MAP_DECODE_THROTTLE_POSITION (x) (x[0]) 
+	
+	#define MAP_DECODE_APPS (x) MAP_DECODE_THROTTLE_POSITION(x)
+	
+	#define MAP_ENCODE_CONSUMED_POWER(pnt, x) (pnt[7] = (x >> 16) & 0xFF, pnt[6] = (x >> 8) & 0xFF, pnt[5] = x & 0xFF)
+	#define MAP_ENCODE_TARGET_POWER(pnt, x) (pnt[4] = (x >> 16) & 0xFF, pnt[3] = (x >> 8) & 0xFF, pnt[2] = x & 0xFF)
+	#define MAP_ENCODE_BRAKE_PRESSURE(pnt, x) (pnt[1] = x)
+	#define MAP_ENCODE_THROTTLE_POSITION(pnt, x) (pnt[0] = x)
 
-
+	#define MAP_ENCODE_APPS(pnt, x) MAP_ENCODE_THROTTLE_POSITION(pnt, x)
 
 	/**======================================================================**/
 	#define CAN_VCU_MODULUS_2 0x021
