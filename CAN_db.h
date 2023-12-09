@@ -1,13 +1,14 @@
 /**
 * @file CAN_db.h
 * @brief CAN database header file
-* @details This file contains the mapping used to extract to encode and decode CAN messages
+* @details This file contains the mapping used to encode and decode CAN messages
+* @note THIS IS OBSOLETE/NEEDS TO BE UPDATED
 * @author João Vieira
 **/
 #ifndef CAN_DB_H
 #define CAN_DB_H
 
-#ifdef __LART_T24__
+//#ifdef __LART_T24__
 	/**
 	* @brief T24 uses a little endian architecture when it comes to CAN messages
 	**/
@@ -45,6 +46,6 @@
 
 
 
-#endif
+//#endif
 
 #endif // CAN_DB_H
