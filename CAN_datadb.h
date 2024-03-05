@@ -2,13 +2,15 @@
 * @file CAN_datadb.h
 * @brief CAN database header file for the data line
 * @details This file contains the mapping used to encode and decode CAN messages
-* @note THIS IS OBSOLETE/NEEDS TO BE UPDATED
+* @note This is being developed as of right now
 * @author João Vieira
+* @version 0.0.0
 **/
 #ifndef CAN_DATADB_H
 #define CAN_DATADB_H
 
 //#ifdef __LART_T24__
+
 	/**
 	* @brief T24 uses a little endian architecture when it comes to CAN messages
 	**/
@@ -39,10 +41,13 @@
 	#define MAP_DECODE_INVERTER_TEMPERATURE(x) ((x[3] << 8 | x[2]) +40)
 	#define MAP_DECODE_INVERTER_VOLTAGE(x) ((x[1] << 8 | x[0]))
 
-
+	/**======================================================================**/
+	#define CAN_VCU_MODULUS_3 0x022
+	/**======================================================================**/
+	
 
 	/**======================================================================**/
-	#define CAN_TCU_MODULUS_1 0x60
+	#define CAN_TCU_MODULUS_1 0x060
 	/**======================================================================**/
 	#define MAP_DECODE_FIRSTSEGMENT_TEMPERATURE(x) (x[7] << 8 | x[6])
 	#define MAP_DECODE_PACK_MEAN_TEMPERATURE(x) (x[5] << 8 | x[4])
@@ -50,6 +55,8 @@
 	#define MAP_DECODE_POWER_TO_BATTERY_FANS(x) (x[2])
 	#define MAP_DECODE_POWER_TO_BATTERY_FANS(x) (x[1])**/
 	#define MAP_DECODE_COLLING_BOARD_STATE(x) (x[0])
+
+	
 
 
 

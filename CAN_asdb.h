@@ -3,6 +3,7 @@
 * @brief CAN database for autonomous driving header file
 * @details This file contains the mapping used to encode and decode CAN messages
 * @author João Vieira
+* @version 0.0.0
 **/
 #ifndef CAN_ASDB_H
 #define CAN_ASDB_H
@@ -12,9 +13,11 @@
 		**/
 		#define CAN_AS_STATUS 0x502
 		/**======================================================================**/
+		#define MAP_DECODE_AS_MISSION(x) (x[0]&0xE0)
 		#define MAP_DECODE_AS_EBS(x) (x[0]&0x18)
 		#define MAP_DECODE_AS_STATE(x) (x[0]&0x07)
 		
+		#define MAP_ENCODE_AS_MISSION(pnt, x)(pnt[0]=(pnt[0]&0x1F) | (x&0xE0) )
 		#define MAP_ENCODE_AS_EBS(pnt, x)(pnt[0]=(pnt[0]&0xE7) | (x&0x18) )
 		#define MAP_ENCODE_AS_STATE(pnt, x)(pnt[0]=(pnt[0]&0xF8)| (x&0x07) )
 		
