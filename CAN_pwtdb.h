@@ -4,6 +4,8 @@
  * @details This file contains the mapping used to encode and decode CAN messages
  * @note THIS IS OBSOLETE/NEEDS TO BE UPDATED
  * @author João Vieira
+ * @author Pedro Ferreira
+ * @version 0.0.1
  **/
 #ifndef CAN_PWTDB_H
 #define CAN_PWTDB_H
@@ -16,8 +18,9 @@
 /**======================================================================**/
 #define CAN_HV500_ERPM_DUTY_VOLTAGE_ID 0x14
 /**======================================================================**/
+
 #define MAP_DECODE_Actual_ERPM(x) (x[0] << 24 | x[1] << 16 | x[2] << 8 | x[3])
-#define MAP_DECODE_Actual_Duty(x) (x[4] << 10 | x[5])
+#define MAP_DECODE_Actual_Duty(x) (x[4] << 8 | x[5])
 #define MAP_DECODE_Actual_InputVoltage(x) (x[6] << 8 | x[7])
 
 /**======================================================================**/
