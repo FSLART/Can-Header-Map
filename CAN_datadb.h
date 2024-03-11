@@ -5,6 +5,7 @@
  * @note This is being developed as of right now
  * @author João Vieira
  * @author Pedro Ferreira
+ * @author Guilherme Candido
  * @version 0.0.1
  **/
 #ifndef CAN_DATADB_H
