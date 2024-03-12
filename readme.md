@@ -25,6 +25,7 @@ Note: **Windows might not have git configured to work in your command prompt** y
 ```
 git submodule add https://github.com/FSLART/Can-Header-Map <directory-you-want-your-file-to-be>
 ```
+TODO: EXAMPLE FOR DEFAULT MPLAB SETUP 
 
 ## How it works
 
@@ -49,7 +50,7 @@ As such this library is designed to be easy to install, light, and easy to work 
 
 See: Contributing
 
-## It doesnt even work properly!!!
+## It doesn't even work properly!!!
 
 See: Contributing
 
@@ -57,4 +58,3 @@ See: Contributing
 All headers for both can and canfd are prefixed with CAN(all in caps), and suffixed with db and its respective extension
 CAN_asdb.h : Contains the header for the autonomous system bus 
 CAN_datadb.h : Contains the header for the data bus
-	
