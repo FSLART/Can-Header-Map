@@ -14,4 +14,9 @@ jobs:
           check_library: enable
           other_options:
             --addon=misra
-            
+            --file-list="filecheck.md"
+      - name: Publish cppcheck result
+        uses: actions/upload-artifact@v2
+        with:
+          name: cppcheck-result
+          path: cppcheck_report.txt
