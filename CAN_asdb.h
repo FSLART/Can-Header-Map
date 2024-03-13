@@ -3,7 +3,8 @@
 * @brief CAN database for autonomous driving header file
 * @details This file contains the mapping used to encode and decode CAN messages
 * @author João Vieira
-* @version 0.0.0
+* @author Pedro Ferreira
+* @version 0.0.1
 **/
 #ifndef CAN_ASDB_H
 #define CAN_ASDB_H
