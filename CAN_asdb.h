@@ -53,7 +53,16 @@
 		#define MAP_ENCODE_AS_MISSION(pnt, x)(pnt[0]=(pnt[0]&0x1F) | (x&0xE0) )
 		#define MAP_ENCODE_AS_EBS(pnt, x)(pnt[0]=(pnt[0]&0xE7) | (x&0x18) )
 		#define MAP_ENCODE_AS_STATE(pnt, x)(pnt[0]=(pnt[0]&0xF8)| (x&0x07) )
-		
+        
+		#ifdef __LART_AXANATO_VCU_GATEWAY__
+            #define CAN_TOJAL_TEST 0x500
+            /**======================================================================**/
+            #define MAP_DECODE_TOJAL_RPM(x) (x[0] << 8 | x[1])
+
+            #define CAN_TOJAL_SEND_RPM 0x510
+            /**======================================================================**/
+            #define MAP_ENCODE_TOJAL_RPM(pnt, x) (pnt[0] = (x >> 8), pnt[1] = x)
+        #endif
 
 	//#endif
 #endif // CAN_ASDB_H

@@ -66,7 +66,7 @@
 #define MAP_DECODE_RPM_min_limit(x) (x[5] & 0x01)
 #define MAP_DECODE_RPM_max_limit(x) (x[5] & 0x02)
 #define MAP_DECODE_Power_limit(x) (x[5] & 0x04)
-//wtf is in [6]???
+//wtf is in [6]??? R: is reserved in the controller bitch
 #define MAP_DECODE_CAN_map_version(x) (x[7])
 
 /**======================================================================**/
@@ -82,12 +82,13 @@
 /**======================================================================**/
 #define CAN_HV500_SetERPM_ID 0x394
 /**======================================================================**/
-#define MAP_ENCODE_CMD_ERPM(pnt, x) (pnt[2] = (x >> 16) & 0xFF, pnt[1] = (x >> 8) & 0xFF, pnt[0] = x & 0xFF)
+/*alterar todos para este formato*/
+#define MAP_ENCODE_CMD_ERPM(pnt, x) (pnt[0] = (x >> 24) & 0xFF, pnt[1] = (x >> 16) & 0xFF,pnt[2] = (x >> 8) & 0xFF,pnt[3] = (x) & 0xFF)
 
 /**======================================================================**/
 #define CAN_HV500_SetPosition_ID 0x3b4
 /**======================================================================**/
-//TODO: This might result in noise due to * 10 operation BEFORE the cutting shift
+//TODO: This might result in noise due to * 10 operation BEFORE the cutting shift R:NO
 #define MAP_ENCODE_CMD_Position(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = ((x * 10) & 0xFF))
 
 /**======================================================================**/
