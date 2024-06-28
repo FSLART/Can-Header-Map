@@ -4,6 +4,7 @@
 * @details This file contains the mapping used to encode and decode CAN messages
 * @author João Vieira
 * @author Pedro Ferreira
+* @author Bruno Vicente
 * @version 0.0.1
 **/
 #ifndef CAN_ASDB_H
@@ -65,5 +66,12 @@
             #define MAP_ENCODE_TOJAL_RPM(pnt, x) (pnt[0] = (x >> 8), pnt[1] = x)
         #endif
 
+
+
+        /**======================================================================**/
+        #define ALC_MS 0x050
+        /**======================================================================**/
+        #define MAP_DECODE_AS_EMERGENCY_STATE(x) (x[0])
+        #define MAP_DECODE_MS_STATE(x) (x[1])
 	//#endif
 #endif // CAN_ASDB_H

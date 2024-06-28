@@ -23,7 +23,7 @@
 #define MAP_DECODE_BRAKE_PRESSURE (x)(x[1])
 #define MAP_DECODE_THROTTLE_POSITION (x)(x[0])
 
-#define MAP_DECODE_APPS (x) MAP_DECODE_THROTTLE_POSITION(x)
+#define MAP_DECODE_APPS (x) MAP_DECODE_THROTTLE_POSITION(x) 
 
 #define MAP_ENCODE_CONSUMED_POWER(pnt, x) (pnt[7] = (x >> 16) & 0xFF, pnt[6] = (x >> 8) & 0xFF, pnt[5] = x & 0xFF)
 #define MAP_ENCODE_TARGET_POWER(pnt, x) (pnt[4] = (x >> 16) & 0xFF, pnt[3] = (x >> 8) & 0xFF, pnt[2] = x & 0xFF)
@@ -164,6 +164,8 @@
 /**======================================================================**/
 #define CAN_DYNAMICS_FRONT_ID_2 0xA1  // definir id
 /**======================================================================**/
+
+
 
 // #endif
 
