@@ -54,6 +54,7 @@
 		#define MAP_ENCODE_AS_EBS(pnt, x)(pnt[0]=(pnt[0]&0xE7) | (x&0x18) )
 		#define MAP_ENCODE_AS_STATE(pnt, x)(pnt[0]=(pnt[0]&0xF8)| (x&0x07) )
         
+        #define __LART_AXANATO_VCU_GATEWAY__ /*TODO REMOVER ESTA MERDA*/
 		#ifdef __LART_AXANATO_VCU_GATEWAY__
             #define CAN_TOJAL_TEST 0x500
             /**======================================================================**/

@@ -14,6 +14,8 @@
  * @brief T24 uses a little endian architecture when it comes to CAN messages
  **/
 
+/*HV500 is big endiano*/
+
 /**======================================================================**/
 #define CAN_HV500_ERPM_DUTY_VOLTAGE_ID 0x14
 /**======================================================================**/
@@ -66,61 +68,59 @@
 #define MAP_DECODE_RPM_min_limit(x) (x[5] & 0x01)
 #define MAP_DECODE_RPM_max_limit(x) (x[5] & 0x02)
 #define MAP_DECODE_Power_limit(x) (x[5] & 0x04)
-//wtf is in [6]??? R: is reserved in the controller bitch
 #define MAP_DECODE_CAN_map_version(x) (x[7])
 
 /**======================================================================**/
 #define CAN_HV500_SetAcCurrent_ID 0x354
 /**======================================================================**/
-#define MAP_ENCODE_CMD_AcCurrent(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = x * 10 & 0xFF)
+#define MAP_ENCODE_CMD_AcCurrent(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = x * 10 & 0xFF)
 
 /**======================================================================**/
 #define CAN_HV500_SetBrakeCurrent_ID 0x374
 /**======================================================================**/
-#define MAP_ENCODE_CMD_BrakeCurrent(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = x * 10 & 0xFF)
+#define MAP_ENCODE_CMD_BrakeCurrent(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = x * 10 & 0xFF)
 
 /**======================================================================**/
 #define CAN_HV500_SetERPM_ID 0x394
 /**======================================================================**/
-/*alterar todos para este formato*/
 #define MAP_ENCODE_CMD_ERPM(pnt, x) (pnt[0] = (x >> 24) & 0xFF, pnt[1] = (x >> 16) & 0xFF,pnt[2] = (x >> 8) & 0xFF,pnt[3] = (x) & 0xFF)
 
 /**======================================================================**/
 #define CAN_HV500_SetPosition_ID 0x3b4
 /**======================================================================**/
 //TODO: This might result in noise due to * 10 operation BEFORE the cutting shift R:NO
-#define MAP_ENCODE_CMD_Position(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = ((x * 10) & 0xFF))
+#define MAP_ENCODE_CMD_Position(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = ((x * 10) & 0xFF))
 
 /**======================================================================**/
 #define CAN_HV500_SetRelCurrent_ID 0x3d4
 /**======================================================================**/
 
-#define MAP_ENCODE_CMD_RelCurrent(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = ((x * 10) & 0xFF))
+#define MAP_ENCODE_CMD_RelCurrent(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = ((x * 10) & 0xFF))
 
 /**======================================================================**/
 #define CAN_HV500_SetRelBrakeCurrent_ID 0x3F4
 /**======================================================================**/
-#define MAP_ENCODE_CMD_RelBrakeCurrent(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = ((x * 10) & 0xFF))
+#define MAP_ENCODE_CMD_RelBrakeCurrent(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = ((x * 10) & 0xFF))
 
 /**======================================================================**/
 #define CAN_HV500_SetMaxAcCurrent_ID 0x414
 /**======================================================================**/
-#define MAP_ENCODE_CMD_MaxAcCurrent(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = ((x * 10) & 0xFF))
+#define MAP_ENCODE_CMD_MaxAcCurrent(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = ((x * 10) & 0xFF))
 
 /**======================================================================**/
 #define CAN_HV500_SetMaxAcBrakeCurrent_ID 0x434
 /**======================================================================**/
-#define MAP_ENCODE_CMD_MaxAcBrakeCurrent(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = ((x * 10) & 0xFF))
+#define MAP_ENCODE_CMD_MaxAcBrakeCurrent(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = ((x * 10) & 0xFF))
 
 /**======================================================================**/
 #define CAN_HV500_SetMaxDcCurrent_ID 0x454
 /**======================================================================**/
-#define MAP_ENCODE_CMD_MaxDcCurrent(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = ((x * 10) & 0xFF))
+#define MAP_ENCODE_CMD_MaxDcCurrent(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = ((x * 10) & 0xFF))
 
 /**======================================================================**/
 #define CAN_HV500_SetMaxDcBrakeCurrent_ID 0x474
 /**======================================================================**/
-#define MAP_ENCODE_CMD_MaxDcBrakeCurrent(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = ((x * 10) & 0xFF))
+#define MAP_ENCODE_CMD_MaxDcBrakeCurrent(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = ((x * 10) & 0xFF))
 
 /**======================================================================**/
 #define CAN_HV500_SetDriveEnable_ID 0x494
