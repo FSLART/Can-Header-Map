@@ -67,6 +67,7 @@
         #define MAP_DECODE_AS_ACU_PNEUMATIC_BRAKING_EBS_REAR(x) (x[5] << 8 | x[4])
         #define MAP_DECODE_AS_ACU_PNEUMATIC_BRAKING_BRAKE_REAR(x) (x[7] << 8 | x[6])
 
+
         #ifdef __LART_AXANATO_VCU_GATEWAY__
             #define CAN_TOJAL_TEST 0x500
             /**======================================================================**/
