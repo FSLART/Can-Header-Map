@@ -1,5 +1,5 @@
 /**
-* @file CAN_asdb.h
+1* @file CAN_asdb.h
 * @brief CAN database for autonomous driving header file
 * @details This file contains the mapping used to encode and decode CAN messages
 * @author João Vieira
@@ -55,8 +55,19 @@
 		#define MAP_ENCODE_AS_EBS(pnt, x)(pnt[0]=(pnt[0]&0xE7) | (x&0x18) )
 		#define MAP_ENCODE_AS_STATE(pnt, x)(pnt[0]=(pnt[0]&0xF8)| (x&0x07) )
         
-        #define __LART_AXANATO_VCU_GATEWAY__ /*TODO REMOVER ESTA MERDA*/
-		#ifdef __LART_AXANATO_VCU_GATEWAY__
+        #define CAN_AS_ACU_HEARTBEAT 0x703
+        /**======================================================================**/
+        #define MAP_DECODE_AS_ACU_HEARTBEAT(x) (x[0])
+        #define MAP_ENCODE_AS_ACU_HEARTBEAT(pnt, x) (pnt[0] = x)
+
+        #define CAN_AS_ACU_PNEU 0x183
+		/**======================================================================**/
+        #define MAP_DECODE_AS_ACU_PNEUMATIC_BRAKING_EBS_FRONT(x) (x[1] << 8 | x[0])
+        #define MAP_DECODE_AS_ACU_PNEUMATIC_BRAKING_BRAKE_FRONT(x) (x[3] << 8 | x[2])
+        #define MAP_DECODE_AS_ACU_PNEUMATIC_BRAKING_EBS_REAR(x) (x[5] << 8 | x[4])
+        #define MAP_DECODE_AS_ACU_PNEUMATIC_BRAKING_BRAKE_REAR(x) (x[7] << 8 | x[6])
+
+        #ifdef __LART_AXANATO_VCU_GATEWAY__
             #define CAN_TOJAL_TEST 0x500
             /**======================================================================**/
             #define MAP_DECODE_TOJAL_RPM(x) (x[0] << 8 | x[1])
