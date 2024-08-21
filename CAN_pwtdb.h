@@ -20,28 +20,28 @@
 #define CAN_HV500_ERPM_DUTY_VOLTAGE_ID 0x14
 /**======================================================================**/
 
-#define MAP_DECODE_Actual_ERPM(x) (x[3] << 24 | x[2] << 16 | x[1] << 8 | x[0])
-#define MAP_DECODE_Actual_Duty(x) (x[5] << 8 | x[4])
-#define MAP_DECODE_Actual_InputVoltage(x) (x[7] << 8 | x[6])
+#define MAP_DECODE_Actual_ERPM(x) (x[0] << 24 | x[1] << 16 | x[2] << 8 | x[3])
+#define MAP_DECODE_Actual_Duty(x) (x[4] << 8 | x[5])
+#define MAP_DECODE_Actual_InputVoltage(x) (x[6] << 8 | x[7])
 
 /**======================================================================**/
 #define CAN_HV500_AC_DC_current_ID 0x34
 /**======================================================================**/
-#define MAP_DECODE_Actual_ACCurrent(x) (x[1] << 8 | x[0])
-#define MAP_DECODE_Actual_DCCurrent(x) (x[3] << 8 | x[2])
+#define MAP_DECODE_Actual_ACCurrent(x) (x[0] << 8 | x[1])
+#define MAP_DECODE_Actual_DCCurrent(x) (x[2] << 8 | x[3])
 
 /**======================================================================**/
 #define CAN_HV500_Temperatures_ID 0x54
 /**======================================================================**/
-#define MAP_DECODE_Actual_TempController(x) (x[1] << 8 | x[0])
-#define MAP_DECODE_Actual_TempMotor(x) (x[3] << 8 | x[2])
+#define MAP_DECODE_Actual_TempController(x) (x[0] << 8 | x[1])
+#define MAP_DECODE_Actual_TempMotor(x) (x[2] << 8 | x[3])
 #define MAP_DECODE_Actual_FaultCode(x) (x[4])
 
 /**======================================================================**/
 #define CAN_HV500_FOC_ID 0x74
 /**======================================================================**/
-#define MAP_DECODE_Actual_FOC_id(x) (x[3] << 24 | x[2] << 16 | x[1] << 8 | x[0])
-#define MAP_DECODE_Actual_FOC_iq(x) (x[7] << 24 | x[6] << 16 | x[5] << 8 | x[4])
+#define MAP_DECODE_Actual_FOC_id(x) (x[0] << 24 | x[1] << 16 | x[2] << 8 | x[3])
+#define MAP_DECODE_Actual_FOC_iq(x) (x[4] << 24 | x[5] << 16 | x[6] << 8 | x[7])
 
 /**======================================================================**/
 #define CAN_HV500_MISC_ID 0x94
@@ -95,7 +95,7 @@
 #define CAN_HV500_SetRelCurrent_ID 0x3d4
 /**======================================================================**/
 
-#define MAP_ENCODE_CMD_RelCurrent(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = ((x * 10) & 0xFF))
+#define MAP_ENCODE_CMD_RelCurrent(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = ((x) & 0xFF))
 
 /**======================================================================**/
 #define CAN_HV500_SetRelBrakeCurrent_ID 0x3F4
