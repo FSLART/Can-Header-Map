@@ -169,6 +169,15 @@
 #define CAN_DYNAMICS_FRONT_ID_2 0xA1  // definir id
 /**======================================================================**/
 
+/**======================================================================**/
+#define CAN_DATA_LOGGER_ID 0x180
+
+#define MAP_DECODE_DATA_LOGGER_STATE(x) (x[0])
+#define MAP_DECODE_DATA_LOGGER_RECORD_STATE(x) (x[1])
+
+#define MAP_ENCODE_DATA_LOGGER_STATE(pnt, x) (pnt[0] = x)
+#define MAP_ENCODE_DATA_LOGGER_RECORD_STATE(pnt, x) (pnt[1] = x)
+
 
 /**======================================================================**/
 #define CAN_BRAKE_LIGHT 0x253  // definir id
