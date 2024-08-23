@@ -52,6 +52,7 @@
 #define MAP_DECODE_LMT1(x) (x[2])
 #define MAP_DECODE_INVERTER_ERROR(x) (x[1] << 8 | x[0])
 
+
 #define MAP_ENCODE_VCU_STATE(pnt, x) (pnt[4] = x)
 #define MAP_ENCODE_LMT2(pnt, x) (pnt[3] = x)
 #define MAP_ENCODE_LMT1(pnt, x) (pnt[2] = x)
@@ -63,9 +64,13 @@
 
 #define MAP_DECODE_RPM(x) (x[3] << 8 | x[2])
 #define MAP_DECODE_INVERTER_VOLTAGE(x) (x[1] << 8 | x[0])
+#define MAP_DECODE_IGNITION_STATE(x) (x[4])
+#define MAP_DECODE_Ready2Drive_STATE(x) (x[5])
 
 #define MAP_ENCODE_RPM(pnt, x) (pnt[3] = (x >> 8) & 0xFF, pnt[2] = x & 0xFF)
 #define MAP_ENCODE_INVERTER_VOLTAGE(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = x & 0xFF)
+#define MAP_ENCODE_IGNITION_STATE(pnt, x) (pnt[4] = x)
+#define MAP_ENCODE_Ready2Drive_STATE(pnt, x) (pnt[5] = x)
 
 /**======================================================================**/
 #define CAN_VCU_ID_5 0x024
