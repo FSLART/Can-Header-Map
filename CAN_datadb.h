@@ -83,56 +83,6 @@
 #define MAP_ENCODE_LV_VOLTAGE(pnt, x) (pnt[5] = (x >> 8) & 0xFF, pnt[6] = x & 0xFF)
 
 /**======================================================================**/
-#define CAN_PDM_ID_1 0x40
-/**======================================================================**/
-
-#define MAP_DECODE_TOTAL_POWER(x) (x[7] << 8 | x[6])
-#define MAP_DECODE_LV_VOLTAGE(x) (x[4] << 8 | x[3])
-#define MAP_DECODE_INPUTS1(x) (x[2])
-#define MAP_DECODE_OUTPUTS1(x) (x[1])
-
-#define MAP_ENCODE_DYNAMICS_FRONT_POWER(pnt, x) (pnt[7] = (x >> 8) & 0xFF, pnt[6] = x & 0xFF)
-#define MAP_ENCODE_DYNAMICS_REAR_POWER(pnt, x) (pnt[5] = (x >> 8) & 0xFF, pnt[4] = x & 0xFF)
-#define MAP_ENCODE_EXTRA_POWER(pnt, x) (pnt[3] = (x >> 8) & 0xFF, pnt[2] = x & 0xFF)
-#define MAP_ENCODE_PDM_HEARTBEAT(pnt, x) (pnt[1] = x)
-
-/**======================================================================**/
-#define CAN_PDM_ID_2 0x41
-/**======================================================================**/
-
-#define MAP_DECODE_TCU_POWER(x) ((x[7] << 8 | x[6]) / 10)
-#define MAP_DECODE_VCU_POWER(x) ((x[5] << 8 | x[4]) / 10)
-#define MAP_DECODE_ACU_POWER(x) ((x[3] << 8 | x[2]) / 10)
-#define MAP_DECODE_DATALOGGER_POWER(x) ((x[1] << 8 | x[0]) / 10)
-
-#define MAP_ENCODE_TCU_POWER(pnt, x) (pnt[7] = (x >> 8) & 0xFF, pnt[6] = x & 0xFF)
-#define MAP_ENCODE_VCU_POWER(pnt, x) (pnt[5] = (x >> 8) & 0xFF, pnt[4] = x & 0xFF)
-#define MAP_ENCODE_ACU_POWER(pnt, x) (pnt[3] = (x >> 8) & 0xFF, pnt[2] = x & 0xFF)
-#define MAP_ENCODE_DATALOGGER_POWER(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = x & 0xFF)
-
-/**======================================================================**/
-#define CAN_PDM_ID_3 0x42
-/**======================================================================**/
-
-#define MAP_DECODE_DYNAMICS_FRONT_POWER(x) (x[7] << 8 | x[6])
-#define MAP_DECODE_DYNAMICS_REAR_POWER(x) (x[5] << 8 | x[4])
-#define MAP_DECODE_EXTRA_POWER(x) (x[3] << 8 | x[2])
-
-#define MAP_ENCODE_TOTAL_POWER(pnt, x) (pnt[7] = (x >> 8) & 0xFF, pnt[6] = x & 0xFF)
-#define MAP_ENCODE_LV_VOLTAGE(pnt, x) (pnt[4] = (x >> 8) & 0xFF, pnt[3] = x & 0xFF)
-#define MAP_ENCODE_INPUTS1(pnt, x) (pnt[2] = x)
-
-/**======================================================================**/
-#define CAN_PDM_ID_4 0x43
-/**======================================================================**/
-
-#define MAP_DECODE_PDM_HEARTBEAT(x) (x[1])
-#define MAP_DECODE_SDC_STATE(x) (x[0])
-
-#define MAP_ENCODE_PDM_HEARTBEAT(pnt, x) (pnt[1] = x)
-#define MAP_ENCODE_SDC_STATE(pnt, x) (pnt[0] = x)
-
-/**======================================================================**/
 #define CAN_IMU_ID_1 0x60
 /**======================================================================**/
 

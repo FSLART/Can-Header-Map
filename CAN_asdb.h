@@ -9,6 +9,7 @@
 **/
 #ifndef CAN_ASDB_H
 #define CAN_ASDB_H
+#define __LART_AXANATO_VCU_GATEWAY__
 	//#ifdef __LART_T24__
 		/**
 		* @brief T24 uses a little endian architecture when it comes to CAN messages
