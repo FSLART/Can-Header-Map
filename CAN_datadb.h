@@ -51,13 +51,13 @@
 #define MAP_DECODE_LMT2(x) (x[3])
 #define MAP_DECODE_LMT1(x) (x[2])
 #define MAP_DECODE_INVERTER_ERROR(x) (x[1] << 8 | x[0])
-#define MAP_DECODE_LV_VOLTAGE(x) (x[7] << 8 | x[6])
+#define MAP_ENCODE_LV_SOC(x) (x[7] << 8 | x[6])
 
 #define MAP_ENCODE_VCU_STATE(pnt, x) (pnt[4] = x)
 #define MAP_ENCODE_LMT2(pnt, x) (pnt[3] = x)
 #define MAP_ENCODE_LMT1(pnt, x) (pnt[2] = x)
 #define MAP_ENCODE_INVERTER_ERROR(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = x & 0xFF)
-#define MAP_ENCODE_LV_VOLTAGE(pnt, x) (pnt[7] = (x >> 8) & 0xFF, pnt[6] = x & 0xFF)
+#define MAP_ENCODE_LV_SOC(pnt, x) (pnt[7] = (x >> 8) & 0xFF, pnt[6] = x & 0xFF)
 
 /**======================================================================**/
 #define CAN_VCU_ID_4 0x023
