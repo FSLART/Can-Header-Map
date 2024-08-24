@@ -51,12 +51,16 @@
 #define MAP_DECODE_LMT2(x) (x[3])
 #define MAP_DECODE_LMT1(x) (x[2])
 #define MAP_DECODE_INVERTER_ERROR(x) (x[1] << 8 | x[0])
+#define MAP_DECODE_APPS_ERROS(x) (x[5])
+#define MAP_DECODE_POWER_PLAN(x) (x[6])
 
 
 #define MAP_ENCODE_VCU_STATE(pnt, x) (pnt[4] = x)
 #define MAP_ENCODE_LMT2(pnt, x) (pnt[3] = x)
 #define MAP_ENCODE_LMT1(pnt, x) (pnt[2] = x)
 #define MAP_ENCODE_INVERTER_ERROR(pnt, x) (pnt[1] = (x >> 8) & 0xFF, pnt[0] = x & 0xFF)
+#define MAP_ENCODE_APPS_ERROS(pnt, x) (pnt[5] = x)
+#define MAP_ENCODE_POWER_PLAN(pnt, x) (pnt[6] = x)
 
 /**======================================================================**/
 #define CAN_VCU_ID_4 0x023
