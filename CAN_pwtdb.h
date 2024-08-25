@@ -127,6 +127,59 @@
 /**======================================================================**/
 #define MAP_ENCODE_CMD_DriveEnable(pnt, x) (pnt[0] = x)
 
+/**======================================================================**/
+#define CAN_TCU_ID_1 0x60
+
+#define MAP_DECODE_BAT_FANS_TOP(x) (x[0])
+#define MAP_DECODE_BAT_FANS_BOT(x) (x[1])
+#define MAP_DECODE_RAD_FANS_LEFT(x) (x[2])
+#define MAP_DECODE_RAD_FANS_RIGHT(x) (x[3])
+#define MAP_DECODE_PUMP(x) (x[4])
+#define MAP_LIQUID_TEMP_1(x) (x[5])
+#define MAP_LIQUID_TEMP_2(x) (x[6])
+#define MAP_LIQUID_TEMP_3(x) (x[7])
+
+#define MAP_ENCODE_BAT_FANS_TOP(pnt, x) (pnt[0] = x)
+#define MAP_ENCODE_BAT_FANS_BOT(pnt, x) (pnt[1] = x)
+#define MAP_ENCODE_RAD_FANS_LEFT(pnt, x) (pnt[2] = x)
+#define MAP_ENCODE_RAD_FANS_RIGHT(pnt, x) (pnt[3] = x)
+#define MAP_ENCODE_PUMP(pnt, x) (pnt[4] = x)
+#define MAP_ENCODE_LIQUID_TEMP_1(pnt, x) (pnt[5] = x)
+#define MAP_ENCODE_LIQUID_TEMP_2(pnt, x) (pnt[6] = x)
+#define MAP_ENCODE_LIQUID_TEMP_3(pnt, x) (pnt[7] = x)
+
+/**======================================================================**/
+
+#define CAN_TCU_ID_2 0x61
+
+#define MAP_DECODE_TCU_CONTACTORS_STATE(x) (x[0])
+#define MAP_DECODE_TCU_CONTACTORS_ERROR(x) (x[1])
+#define MAP_DECODE_AUTONOMOUS_IGNITION(x) (x[2])
+#define MAP_DECODE_PRECHARGE_DONE(x) (x[3])
+#define MAP_DECODE_SDC_STATE(x) (x[4])
+#define MAP_DECODE_TCU_STATE(x) (x[5])
+
+
+#define MAP_ENCODE_TCU_CONTACTORS_STATE(pnt, x) (pnt[0] = x)
+#define MAP_ENCODE_TCU_CONTACTORS_ERROR(pnt, x) (pnt[1] = x)
+#define MAP_ENCODE_AUTONOMOUS_IGNITION(pnt, x) (pnt[2] = x)
+#define MAP_ENCODE_PRECHARGE_DONE(pnt, x) (pnt[3] = x)
+#define MAP_ENCODE_SDC_STATE(pnt, x) (pnt[4] = x)
+#define MAP_ENCODE_TCU_STATE(pnt, x) (pnt[5] = x)
+
+
+/**======================================================================**/
+
+#define CAN_PWT_VCU_ID_1 0x23
+
+#define MAP_DECODE_PWT_R2D_STATE(x) (x[4])
+#define MAP_DECODE_PWT_IGNITION_STATE(x) (x[5])
+
+#define MAP_ENCODE_PWT_R2D_STATE(pnt, x) (pnt[4] = x)
+#define MAP_ENCODE_PWT_IGNITION_STATE(pnt, x) (pnt[5] = x)
+
+
+
 // #endif
 
 #endif  // CAN_PWTDB_H
