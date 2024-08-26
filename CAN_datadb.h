@@ -38,10 +38,12 @@
 
 #define MAP_DECODE_MOTOR_TEMPERATURE(x) ((x[3] << 8 | x[2]) + 40)
 #define MAP_DECODE_INVERTER_TEMPERATURE(x) ((x[1] << 8 | x[0]) + 40)
+#define MAP_DECODE_HV_VOLTAGE(x) (x[6] << 8 | x[5])
 #define MAP_DECODE_HV_SOC(x) (x[7])
 
 #define MAP_ENCODE_MOTOR_TEMPERATURE(pnt, x) (pnt[3] = (x - 40) >> 8, pnt[2] = (x - 40) & 0xFF)
 #define MAP_ENCODE_INVERTER_TEMPERATURE(pnt, x) (pnt[1] = (x - 40) >> 8, pnt[0] = (x - 40) & 0xFF)
+#define MAP_ENCODE_HV_VOLTAGE(pnt, x) (pnt[6] = (x >> 8) & 0xFF, pnt[5] = x & 0xFF)
 #define MAP_ENCODE_HV_SOC(pnt, x) (pnt[7] = x)
 
 /**======================================================================**/

@@ -178,7 +178,52 @@
 #define MAP_ENCODE_PWT_R2D_STATE(pnt, x) (pnt[4] = x)
 #define MAP_ENCODE_PWT_IGNITION_STATE(pnt, x) (pnt[5] = x)
 
+/**======================================================================**/
 
+#define CAN_PWT_BMS_ID_1 0x80
+//little endian
+#define MAP_DECODE_PWT_BMS_PACK_INSTANT_VOLTAGE(x) (x[0] << 8 | x[1])
+#define MAP_DECODE_PWT_BMS_PACK_OPEN_VOLTAGE(x) (x[2] << 8 | x[3])
+#define MAP_DECODE_PWT_BMS_PACK_SOC(x) (x[4])
+#define MAP_DECODE_PWT_BMS_PACK_CURRENT(x) (x[5] << 8 | x[6])
+
+#define MAP_ENCODE_PWT_BMS_PACK_INSTANT_VOLTAGE(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = x & 0xFF)
+#define MAP_ENCODE_PWT_BMS_PACK_OPEN_VOLTAGE(pnt, x) (pnt[2] = (x >> 8) & 0xFF, pnt[3] = x & 0xFF)
+#define MAP_ENCODE_PWT_BMS_PACK_SOC(pnt, x) (pnt[4] = x)
+#define MAP_ENCODE_PWT_BMS_PACK_CURRENT(pnt, x) (pnt[5] = (x >> 8) & 0xFF, pnt[6] = x & 0xFF)
+
+
+
+#define CAN_PWT_BMS_ID_1 0x81
+
+#define MAP_DECODE_PWT_BMS_PACK_HIGH_CELL_VOLTAGE(x) (x[0] << 8 | x[1])
+#define MAP_DECODE_PWT_BMS_PACK_HIGH_CELL_VOLTAGE_ID(x) (x[2])
+#define MAP_DECODE_PWT_BMS_PACK_LOW_CELL_VOLTAGE(x) (x[3] << 8 | x[4])
+#define MAP_DECODE_PWT_BMS_PACK_LOW_CELL_VOLTAGE_ID(x) (x[5])
+#define MAP_DECODE_PWT_BMS_PACK_AVG_CELL_VOLTAGE(x) (x[6] << 8 | x[7])
+
+#define MAP_ENCODE_PWT_BMS_PACK_HIGH_CELL_VOLTAGE(pnt, x) (pnt[0] = (x >> 8) & 0xFF, pnt[1] = x & 0xFF)
+#define MAP_ENCODE_PWT_BMS_PACK_HIGH_CELL_VOLTAGE_ID(pnt, x) (pnt[2] = x)
+#define MAP_ENCODE_PWT_BMS_PACK_LOW_CELL_VOLTAGE(pnt, x) (pnt[3] = (x >> 8) & 0xFF, pnt[4] = x & 0xFF)
+#define MAP_ENCODE_PWT_BMS_PACK_LOW_CELL_VOLTAGE_ID(pnt, x) (pnt[5] = x)
+#define MAP_ENCODE_PWT_BMS_PACK_AVG_CELL_VOLTAGE(pnt, x) (pnt[6] = (x >> 8) & 0xFF, pnt[7] = x & 0xFF)
+
+
+#define CAN_PWT_BMS_ID_1 0x82
+
+#define MAP_DECODE_PWT_BMS_PACK_HIGH_CELL_TEMP(x) (x[0])
+#define MAP_DECODE_PWT_BMS_PACK_HIGH_CELL_TEMP_ID(x) (x[1])
+#define MAP_DECODE_PWT_BMS_PACK_LOW_CELL_TEMP(x) (x[2])
+#define MAP_DECODE_PWT_BMS_PACK_LOW_CELL_TEMP_ID(x) (x[3])
+#define MAP_DECODE_PWT_BMS_PACK_AMBIENT_TEMP(x) (x[4])
+
+#define MAP_ENCODE_PWT_BMS_PACK_HIGH_CELL_TEMP(pnt, x) (pnt[0] = x)
+#define MAP_ENCODE_PWT_BMS_PACK_HIGH_CELL_TEMP_ID(pnt, x) (pnt[1] = x)
+#define MAP_ENCODE_PWT_BMS_PACK_LOW_CELL_TEMP(pnt, x) (pnt[2] = x)
+#define MAP_ENCODE_PWT_BMS_PACK_LOW_CELL_TEMP_ID(pnt, x) (pnt[3] = x)
+#define MAP_ENCODE_PWT_BMS_PACK_AMBIENT_TEMP(pnt, x) (pnt[4] = x)
+
+/**======================================================================**/
 
 // #endif
 
