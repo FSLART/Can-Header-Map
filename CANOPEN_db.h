@@ -10,7 +10,7 @@
 
 /**================== Node IDS ==========================**/
 #define NODE_ID_ACU 0x03
-#define NODE_ID_STEERING 0x05
+#define NODE_ID_STEERING 0x08
 #define NODE_ID_BRAKE 0x06 //RESERVED DONT USE
 #define NODE_ID_RES 0x11 // DO NOT CHANGE!! ENFORCED BY RULES!!!
 /**======================================================================**/

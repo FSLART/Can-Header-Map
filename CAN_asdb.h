@@ -72,11 +72,11 @@
         #ifdef __LART_AXANATO_VCU_GATEWAY__
             #define CAN_TOJAL_TEST 0x500
             /**======================================================================**/
-            #define MAP_DECODE_TOJAL_RPM(x) (x[0] << 8 | x[1])
+            #define MAP_DECODE_TOJAL_RPM(x) ((x[1] << 8) | x[0])
 
             #define CAN_TOJAL_SEND_RPM 0x510
             /**======================================================================**/
-            #define MAP_ENCODE_TOJAL_RPM(pnt, x) (pnt[0] = (x >> 8), pnt[1] = x)
+            #define MAP_ENCODE_TOJAL_RPM(pnt, x) (pnt[1] = (x >> 8), pnt[0] = x)
         #endif
 
 
