@@ -1,13 +1,15 @@
 /**
-* @file CAN_asdb.h
+1* @file CAN_asdb.h
 * @brief CAN database for autonomous driving header file
 * @details This file contains the mapping used to encode and decode CAN messages
 * @author João Vieira
 * @author Pedro Ferreira
+* @author Bruno Vicente
 * @version 0.0.1
 **/
 #ifndef CAN_ASDB_H
 #define CAN_ASDB_H
+#define __LART_AXANATO_VCU_GATEWAY__
 	//#ifdef __LART_T24__
 		/**
 		* @brief T24 uses a little endian architecture when it comes to CAN messages
@@ -53,7 +55,36 @@
 		#define MAP_ENCODE_AS_MISSION(pnt, x)(pnt[0]=(pnt[0]&0x1F) | (x&0xE0) )
 		#define MAP_ENCODE_AS_EBS(pnt, x)(pnt[0]=(pnt[0]&0xE7) | (x&0x18) )
 		#define MAP_ENCODE_AS_STATE(pnt, x)(pnt[0]=(pnt[0]&0xF8)| (x&0x07) )
-		
+        
+        #define CAN_AS_ACU_HEARTBEAT 0x703
+        /**======================================================================**/
+        #define MAP_DECODE_AS_ACU_HEARTBEAT(x) (x[0])
+        #define MAP_ENCODE_AS_ACU_HEARTBEAT(pnt, x) (pnt[0] = x)
 
+        #define CAN_AS_ACU_PNEU 0x183
+		/**======================================================================**/
+        #define MAP_DECODE_AS_ACU_PNEUMATIC_BRAKING_EBS_FRONT(x) (x[1] << 8 | x[0])
+        #define MAP_DECODE_AS_ACU_PNEUMATIC_BRAKING_BRAKE_FRONT(x) (x[3] << 8 | x[2])
+        #define MAP_DECODE_AS_ACU_PNEUMATIC_BRAKING_EBS_REAR(x) (x[5] << 8 | x[4])
+        #define MAP_DECODE_AS_ACU_PNEUMATIC_BRAKING_BRAKE_REAR(x) (x[7] << 8 | x[6])
+
+
+        #ifdef __LART_AXANATO_VCU_GATEWAY__
+            #define CAN_TOJAL_TEST 0x499
+            /**======================================================================**/
+            #define MAP_DECODE_TOJAL_RPM(x) ((x[1] << 8) | x[0])
+
+            #define CAN_TOJAL_SEND_RPM 0x509
+            /**======================================================================**/
+            #define MAP_ENCODE_TOJAL_RPM(pnt, x) (pnt[1] = (x >> 8), pnt[0] = x)
+        #endif
+
+
+
+        /**======================================================================**/
+        #define ALC_MS 0x050
+        /**======================================================================**/
+        #define MAP_DECODE_AS_EMERGENCY_STATE(x) (x[0])
+        #define MAP_DECODE_MS_STATE(x) (x[1])
 	//#endif
 #endif // CAN_ASDB_H
